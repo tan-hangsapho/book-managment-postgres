@@ -2,6 +2,7 @@ import express from "express";
 import { errorHandler } from "./middlewares/error-handler";
 import loggerMiddleware from "./middlewares/logger-handler";
 import bodyParser from "body-parser";
+import { bookRoute } from "./routes/book.route";
 
 export const app = express();
 
@@ -13,9 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(loggerMiddleware);
 //ROUTE
-// app.use("/book", bookRoute);
-// app.use("/author", authorRoute);
-// app.use("/category", categoryRoute);
+app.use("/api", bookRoute);
 
 // Global Error Handler
 app.use(errorHandler);

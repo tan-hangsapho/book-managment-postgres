@@ -1,19 +1,20 @@
-import mongoose from "mongoose";
-
 export interface IBook {
   title?: string;
-  author?: mongoose.Types.ObjectId;
-  category?: mongoose.Types.ObjectId;
+  author?: string;
+  category?: string;
   publicationDate?: Date;
   pages?: number;
   price?: number;
   inStock?: boolean;
-  createAt: Date;
 }
+
 export interface IBookUpdate {
   title?: string;
+  author?: string;
+  category?: string;
   publicationDate?: Date;
   pages?: number;
   price?: number;
-  updatedDate?: Date;
+  inStock?: boolean;
+  updatedAt?: Date;
 }

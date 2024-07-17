@@ -1,5 +1,5 @@
 import { app } from "./app";
-import connectPostgres from "./database";
+import ConnectPostgres from "./database";
 import getConfig from "./utils/config";
 import { logInit, logger } from "./utils/logger";
 
@@ -8,7 +8,7 @@ export async function run() {
     const config = getConfig(process.env.NODE_ENV);
 
     // Debugging: Log config to ensure it's correctly loaded
-    console.log("Loaded config:", config);
+    // console.log("Loaded config:", config);
 
     // Initialize Logger
     logInit({ env: config.env, logLevel: config.logLevel });
@@ -17,7 +17,7 @@ export async function run() {
     logger.info("Logger initialized");
 
     // Initialize Database
-    const postgres = connectPostgres.getInstance();
+    const postgres = ConnectPostgres.getInstance();
     await postgres.connect({ url: config.postgresUrl as string });
 
     // Debugging: Log success message for database connection
